@@ -1,53 +1,76 @@
-**Student Management System - Phase 1: Database Design**
+# Student Management System - Full Stack Backend
 
-This phase focused on designing and implementing a relational database to manage academic records. The system tracks students, departments, courses, and enrollments using Microsoft SQL Server.
+## Project Overview
+This project provides a comprehensive backend solution for an academic management system. It transitions from a relational database design to a functional RESTful API built with .NET 9.0 and SQL Server.
 
-Objectives
-1. Perform requirements analysis for a Student Management Information System (SMIS).
+## Phase 1: Database Architecture
 
-2. Design an Entity-Relationship (ER) model.
+Requirements Analysis: Designed a relational model for a Student Management Information System (SMIS).
 
-3. Implement 3rd Normal Form (3NF) to ensure data integrity.
+Normalization: Implemented 3rd Normal Form (3NF) to eliminate data redundancy.
 
-4. Script and execute DDL (Data Definition Language) and DML (Data Manipulation Language).
+Schema Design: Created four core tables:
 
-**Database Schema**
+Departments: Academic units.
 
-The database consists of four primary tables:
+Students: Profiles linked to departments.
 
-1. Departments: Stores academic department details.
+Courses: Subject catalog.
 
-2. Students: Stores student profiles linked to departments.
+Enrollments: Junction table for many-to-many relationships.
 
-3. Courses: Catalog of available subjects.
+Integrity: Enforced Primary Keys, Foreign Keys, and Check Constraints using T-SQL.
 
-4. Enrollments: A junction table managing the many-to-many relationship between students and courses.
+## Phase 2: API & Backend Development
 
-**Technical Stack**
+Framework: Developed using ASP.NET Core Web API and C#.
 
-- Database Engine: Microsoft SQL Server 2025
+ORM: Integrated Entity Framework Core to map SQL tables to C# Models.
 
-- Query Language: T-SQL (Transact-SQL)
+CRUD Operations: Implemented full Create, Read, Update, and Delete logic for student records.
 
-- Tooling: SQLCMD / SQL Server Management Studio (SSMS)
+Documentation: Integrated Swagger/OpenAPI for real-time API testing and endpoint visualization.
 
-**Key SQL Features Implemented**
-- Primary Keys & Identity: Used for unique record identification and auto-incrementing IDs.
+## Technical Stack
 
-- Foreign Keys: Enforced referential integrity between tables.
+Language: C#
 
-- Check Constraints: Validated data entry (e.g., ensuring course credits are greater than zero).
+Backend Framework: .NET 9.0 / ASP.NET Core
 
-- Complex Joins: Implemented multi-table joins to generate comprehensive student academic reports.
+Database: Microsoft SQL Server
 
-**How to Run the Scripts**
+ORM: Entity Framework Core (EF Core)
 
-Ensure SQL Server is installed and running.
+Tools: Visual Studio 2022, SSMS, Git, NuGet
 
-Connect to your server using sqlcmd or SSMS.
+## API Endpoints (CRUD)
 
-Run the scripts located in the /scripts folder in the following order:
+GET /api/Students: Retrieves a list of all students.
 
-- Schema.sql (Creates the tables)
+POST /api/Students: Adds a new student record (automatically handles ID generation).
 
-- SeedData.sql (Populates the tables with sample data)
+PUT /api/Students/{id}: Updates existing student details based on a matching ID.
+
+DELETE /api/Students/{id}: Removes a student record from the database.
+
+## How to Run the Project
+
+### 1. Database Setup
+
+Navigate to the /scripts folder.
+
+Execute Schema.sql to create the table structures.
+
+Execute SeedData.sql to populate the tables with sample data.
+
+Update the ConnectionStrings in appsettings.json with your local SQL Server instance details.
+
+### 2. Launch the API
+
+Open the solution file (.sln) in Visual Studio.
+
+Select the http profile from the debug dropdown menu.
+
+Press F5 to start the application.
+
+Open your browser and go to http://localhost:5178/swagger to start testing.
