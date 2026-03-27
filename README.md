@@ -41,4 +41,4 @@ Open the **Package Manager Console** and run:
 ---
 
 ### **Swagger UI Preview**
-![Swagger UI Screenshot](./src/StudentManagementAPI/StudentManagementAPI/swagger-screenshot.png)
+![Swagger UI Screenshot](./swagger-screenshot.png)
